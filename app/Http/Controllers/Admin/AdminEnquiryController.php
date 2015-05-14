@@ -20,6 +20,7 @@ class AdminEnquiryController extends Controller {
      */
     public function index() {
         //
+        echo "hello world";
         $enquiries = $this->get_data();
         return view('admin.enquiry.listing',  compact('enquiries'));
     }
