@@ -27,6 +27,8 @@ Route::post('/user_login', 'Admin\AdminUserController@user_login');
 
 //AdminEnquiryController
 Route::match(array('GET', 'POST'), '/enquiry', array('as' => 'enquiry', 'uses' => 'Admin\AdminEnquiryController@index'));
+Route::get('/enquiry/add', array('as' => '/enquiry/add', 'uses' => 'Admin\AdminEnquiryController@create'));
+Route::get('/enquiry/edit/{id?}', array('as' => '/enquiry/edit', 'uses' => 'Admin\AdminEnquiryController@create'));
 
 //AdminDashboardController
 Route::get('/dashboard', array('as' => 'dashboard', 'uses' => 'Admin\AdminDashboardController@index'));

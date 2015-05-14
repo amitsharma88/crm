@@ -13,16 +13,16 @@
     <meta name="author" content="Bootstrap Gallery" />
     <link rel="shortcut icon" href="img/favicon.ico">
     
-    <link href="public/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="public/admin/css/wysi/bootstrap-wysihtml5.css" rel="stylesheet">
+    <link href="{{SITE_URL}}/public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{SITE_URL}}/public/admin/css/wysi/bootstrap-wysihtml5.css" rel="stylesheet">
 
-    <link href="public/admin/css/new.css" rel="stylesheet">
+    <link href="{{SITE_URL}}/public/admin/css/new.css" rel="stylesheet">
     <!-- Important. For Theming change primary-color variable in main.css  -->
 
     <!-- Color Picker -->
-    <link rel="stylesheet" href="public/admin/css/color-picker/jquery.minicolors.css">
+    <link rel="stylesheet" href="{{SITE_URL}}/public/admin/css/color-picker/jquery.minicolors.css">
 
-    <link href="public/admin/fonts/font-awesome.min.css" rel="stylesheet">
+    <link href="{{SITE_URL}}/public/admin/fonts/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

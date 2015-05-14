@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
 use App\Models\Enquiry;
 use DB;
@@ -21,7 +23,7 @@ class AdminEnquiryController extends Controller {
     public function index() {
         //
         $enquiries = $this->get_data();
-        return view('admin.enquiry.listing',  compact('enquiries'));
+        return view('admin.enquiry.listing', compact('enquiries'));
     }
 
     /**
@@ -33,12 +35,12 @@ class AdminEnquiryController extends Controller {
      */
     function get_data($id = '') {
         $query = Enquiry::orderBy('enquiries.created_at');
-        if($id){
-            $query->where('id',$id);
-            $query->first();
-        }else{
+        if ($id) {
+            $query->where('id', $id);
+            $result = $query->first();
+        } else {
             $result = $query->paginate(5);
-            $result->setPath(SITE_URL.'/enquiry');
+            $result->setPath(SITE_URL . '/enquiry');
         }
         return $result;
     }
@@ -48,8 +50,12 @@ class AdminEnquiryController extends Controller {
      *
      * @return Response
      */
-    public function create() {
-        //
+    public function create(Request $request, $id = '') {
+        $enquiries = array();
+        if ($id) {
+            $enquiries = $this->get_data($id);
+        }
+        return view('admin.enquiry.manage_enquiry_view');
     }
 
     /**

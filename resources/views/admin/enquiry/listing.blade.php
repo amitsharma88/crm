@@ -12,7 +12,11 @@
     </div>
 </div>
 
-
+<div class="row">
+    <div class="pull-right">
+        <a href='{{SITE_URL}}/enquiry-add' class="btn btn-block btn-info">Create Inquiry</a>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-12 col-md-12">
         <div class="widget">
@@ -51,13 +55,15 @@
                     <tbody>
                         @if($enquiries)
                         @foreach($enquiries as $enquiry)
+                        <?php //print_r($enquiry)?>
                         <tr>
                             <td>
                                 <input type="checkbox" class="no-margin" />
                             </td>
                             <td>
                                 <span class="name">
-                                    Mahendra Singh Dhoni
+                                   <!--{{$enquiry->first_name}}-->
+                                  ABC
                                 </span>
                             </td>
                             <td>
