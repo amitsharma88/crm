@@ -37,17 +37,17 @@
     </div>
     <!-- Main Container end -->
 
-    <script src="public/admin/js/wysi/wysihtml5-0.3.0.min.js"></script>
-    <script src="public/admin/js/jquery.js"></script>
-    <script src="public/admin/js/bootstrap.min.js"></script>
-    <script src="public/admin/js/wysi/bootstrap3-wysihtml5.js"></script>
-    <script src="public/admin/js/jquery.scrollUp.js"></script>
+    <script src="{{SITE_URL}}/public/admin/js/wysi/wysihtml5-0.3.0.min.js"></script>
+    <script src="{{SITE_URL}}/public/admin/js/jquery.js"></script>
+    <script src="{{SITE_URL}}/public/admin/js/bootstrap.min.js"></script>
+    <script src="{{SITE_URL}}/public/admin/js/wysi/bootstrap3-wysihtml5.js"></script>
+    <script src="{{SITE_URL}}/public/admin/js/jquery.scrollUp.js"></script>
     
     <!-- Color Picker -->
-    <script src="public/admin/js/color-picker/jquery.minicolors.js"></script>
+    <script src="{{SITE_URL}}/public/admin/js/color-picker/jquery.minicolors.js"></script>
 
     <!-- Custom JS -->
-    <script src="public/admin/js/menu.js"></script>
+    <script src="{{SITE_URL}}/public/admin/js/menu.js"></script>
     
     <script type="text/javascript">
       //ScrollUp
