@@ -1,3 +1,3 @@
 <?php
-    define("SITE_URL", 'http://localhost/crmi');
+    define("SITE_URL", 'http://localhost/crm');
 ?>
