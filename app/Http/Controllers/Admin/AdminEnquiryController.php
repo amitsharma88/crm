@@ -6,7 +6,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
-use App\Models\Enquiry;
+use Repositories\EnquiryRepositoryInterface;
+use Repositories\UserRepositoryInterface;
 use DB;
 use Input;
 use Auth;
@@ -15,35 +16,25 @@ use Redirect;
 
 class AdminEnquiryController extends Controller {
 
+    protected $enquiryRepo;
+    protected $userRepo;
+
+    public function __construct(EnquiryRepositoryInterface $enquiryRepo,UserRepositoryInterface $userRepo) {
+        $this->enquiryRepo = $enquiryRepo;
+        $this->userRepo = $userRepo;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
     public function index() {
-        //
-        echo "hello world";
-        $enquiries = $this->get_data();
+        
+        $users = $this->userRepo->getUsers();
+        dd($users);
+        $enquiries = $this->enquiryRepo->getEnquiries();
         return view('admin.enquiry.listing', compact('enquiries'));
-    }
-
-    /**
-      /function name get_data()
-     * will fetch all the records with pagiantion and $id is optional,
-     * If $ide is valid and not null than it will return single value of correspomndig id
-     * Author : Amit
-     * Date :  13-5-15
-     */
-    function get_data($id = '') {
-        $query = Enquiry::orderBy('enquiries.created_at');
-        if ($id) {
-            $query->where('id', $id);
-            $result = $query->first();
-        } else {
-            $result = $query->paginate(5);
-            $result->setPath(SITE_URL . '/enquiry');
-        }
-        return $result;
     }
 
     /**

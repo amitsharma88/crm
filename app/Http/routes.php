@@ -1,5 +1,10 @@
 <?php
 
+//bind
+App::bind('Repositories\UserRepositoryInterface','Repositories\Eloquent\UserRepo');
+App::bind('Repositories\EnquiryRepositoryInterface','Repositories\Eloquent\EnquiryRepo');
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -23,6 +28,7 @@ Route::controllers([
 //AdminUserController
 Route::get('/', 'Admin\AdminUserController@index');
 Route::post('/user_login', 'Admin\AdminUserController@user_login');
+Route::get('/userListing', 'Admin\AdminUserController@user_listing');
 
 
 //AdminEnquiryController

@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
+use Repositories\UserRepositoryInterface;
 use App\Models\User;
 use DB;
 use Input;
@@ -14,6 +15,12 @@ use Session;
 use Redirect;
 
 class AdminUserController extends Controller {
+
+    protected $userRepo;
+
+    public function __construct(UserRepositoryInterface $userRepo) {
+        $this->userRepo = $userRepo;
+    }
 
     /**
      * Display Login screen
@@ -35,7 +42,8 @@ class AdminUserController extends Controller {
         $email = Input::get('email');
         $password = Input::get('password');
         if ($email && $password) {
-            $user = User::where('email', $email)->first();
+            $user = $this->userRepo->getUserByAttribute(NULL,$email);
+            dd($user);
             $userData = array(
                 'email' => $email,
                 'password' => $password,
@@ -56,6 +64,12 @@ class AdminUserController extends Controller {
             $error = 'Invalid Email/Password';
             return view('admin.login.login', compact('error'));
         }
+    }
+
+    function user_listing() {
+        $users = $this->userRepo->getUsers();
+        $users = $this->userRepo->getUserById(78,'');
+        dd($users);
     }
 
     /**
